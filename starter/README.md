@@ -1,3 +1,80 @@
+# Census Income Classification API
+
+This project trains a machine learning model on the Census Income dataset and
+serves predictions through a FastAPI application.
+
+## Completed Components
+
+* Data loading and whitespace cleaning for the original `data/census.csv`.
+* Categorical feature encoding and label binarization.
+* Random Forest model training and inference.
+* Overall precision, recall, and F1 evaluation.
+* Slice-level performance output in `slice_output.txt`.
+* FastAPI app with:
+  * `GET /` welcome route.
+  * `POST /predict` inference route.
+  * Pydantic request model with field aliases for columns containing hyphens.
+* Unit tests for the model pipeline and API.
+* GitHub Actions workflow for pytest and flake8.
+* `live_post.py` for sending one request to a local or deployed API.
+
+## Local Setup
+
+```bash
+python3.13 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .
+```
+
+## Train the Model
+
+```bash
+python -m starter.train_model
+```
+
+This writes:
+
+* `model/model.pkl`
+* `model/encoder.pkl`
+* `model/lb.pkl`
+* `slice_output.txt`
+
+## Run Tests
+
+```bash
+flake8 .
+pytest -q
+```
+
+## Run the API Locally
+
+```bash
+uvicorn main:app --reload
+```
+
+Then open `http://127.0.0.1:8000/docs`.
+
+## Live API Request Script
+
+For a local API:
+
+```bash
+python live_post.py
+```
+
+For a deployed API:
+
+```bash
+API_URL="https://your-app.herokuapp.com/predict" python live_post.py
+```
+
+## Model Card
+
+The model card is completed in `model_card_template.md`.
+
+## Original Starter Instructions
+
 Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
 
 # Environment Set up
