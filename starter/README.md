@@ -3,6 +3,11 @@
 This project trains a machine learning model on the Census Income dataset and
 serves predictions through a FastAPI application.
 
+## Project Links
+
+* GitHub repository: https://github.com/megrn/census-income-api
+* Live API: deployment URL will be added after the first successful deployment.
+
 ## Completed Components
 
 * Data loading and whitespace cleaning for the original `data/census.csv`.
@@ -16,7 +21,7 @@ serves predictions through a FastAPI application.
   * Pydantic request model with field aliases for columns containing hyphens.
 * Unit tests for the model pipeline and API.
 * GitHub Actions workflow for pytest and flake8.
-* `live_post.py` for sending one request to a local or deployed API.
+* `live_post.py` for sending one request to the deployed API.
 
 ## Local Setup
 
@@ -57,17 +62,13 @@ Then open `http://127.0.0.1:8000/docs`.
 
 ## Live API Request Script
 
-For a local API:
+Run against the deployed API URL configured in `live_post.py`:
 
 ```bash
 python live_post.py
 ```
 
-For a deployed API:
-
-```bash
-API_URL="https://your-app.herokuapp.com/predict" python live_post.py
-```
+The optional `API_URL` environment variable can override the deployed endpoint.
 
 ## Model Card
 
