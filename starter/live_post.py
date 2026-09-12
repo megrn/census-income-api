@@ -5,22 +5,25 @@ import os
 import requests
 
 
-API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/predict")
+API_URL = os.getenv(
+    "API_URL",
+    "https://census-income-api-rikq.onrender.com/predict",
+)
 
 payload = {
     "age": 52,
     "workclass": "Self-emp-inc",
     "fnlgt": 209642,
-    "education": "HS-grad",
-    "education-num": 9,
+    "education": "Bachelors",
+    "education-num": 13,
     "marital-status": "Married-civ-spouse",
     "occupation": "Exec-managerial",
     "relationship": "Husband",
     "race": "White",
     "sex": "Male",
-    "capital-gain": 0,
+    "capital-gain": 15000,
     "capital-loss": 0,
-    "hours-per-week": 45,
+    "hours-per-week": 60,
     "native-country": "United-States",
 }
 

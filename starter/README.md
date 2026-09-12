@@ -6,7 +6,7 @@ serves predictions through a FastAPI application.
 ## Project Links
 
 * GitHub repository: https://github.com/megrn/census-income-api
-* Live API: deployment URL will be added after the first successful deployment.
+* Live API: https://census-income-api-rikq.onrender.com
 
 ## Completed Components
 
